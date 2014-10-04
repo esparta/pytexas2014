@@ -1,0 +1,32 @@
+<!-- extend base layout -->
+{% extends "layout.html" %}
+{% block content %}
+
+{% if entidad %}
+<div class="well">
+  City Councils on the State of {{ entidad.nom_ent }}
+</div>
+
+<table class="table table-bordered">
+    <thead>
+        <tr><th>Code</th><th>City Council</th>
+            <th>Population</th><th>Female Pop.</th><th>Male Pop.</th></thead>
+    {% for municipio in entidad.municipios %}
+<tr>
+    <td> {{ municipio.cve_mun }}</td> <td> {{ municipio.nom_mun }} </td>
+    <td> {{ municipio.ptot }}</td><td> {{ municipio.pfem }}</td><td> {{ municipio.pmas }}</td>
+</tr>        
+    {% endfor %}
+
+</table>
+
+{% else %}
+<h1> Who is this? Bobby? Bobby Tables? </h1>
+
+<a href="http://xkcd.com/327/">
+    <img src="http://imgs.xkcd.com/comics/exploits_of_a_mom.png" alt="Bobby"/>
+</a>
+
+{% endif %}
+
+{% endblock %}

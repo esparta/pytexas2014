@@ -1,0 +1,28 @@
+<!-- extend base layout -->
+{% extends "layout.html" %}
+{% block content %}
+
+
+<div class="well">
+  {% if msg %}
+     {{ msg }}
+  {% endif %}
+</div>
+<form action="" method="post" class="form-horizontal">
+<table>
+    <tr>
+<td>State
+<select name="cve_ent" width="300px">
+{% for e in entidades %}
+    <option value="{{ e.cve_ent }}">{{ e.nom_ent }}</option>
+{% endfor %}
+</select>
+</td>
+<td>
+    <input class="button" type="submit" class="btn btn-success" value="View City Counties">
+</td>
+</tr>
+</table>
+</form>
+
+{% endblock %}
